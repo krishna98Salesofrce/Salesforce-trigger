@@ -1,0 +1,42 @@
+trigger Accounttrigger on Acount(before insert,After insert){
+if (trigger.isinsert){
+if (trigger.isbefore){
+AccountTriggerHandler.updatedesc(Trigger.new);
+AccountTriggerHandler.populateRating(Trigger.new);
+
+else(if(Trigger.isafter)
+AccountTriggerHandler.createopp(Treigger.new);
+}}}
+
+// mehtod
+Public static void createopp(list<Account> acclist){
+list <Opportunity>opplist = new list< OPportunuty >();
+
+for (Account acc: acclist){
+
+oppturnity opp = new opportunity();
+opp.name =acc.name;
+opp.cllsedate = system.today();
+opp.satgename = 'prosptecting';
+opp.accountid = acc.id;
+opp.list.add(opp);
+}
+}
+if (!opplist.isempty()){
+isert opplist;
+} 
+
+
+Public class AccountTriggerHandler.updatedesc{
+Public static Void updatedesc(list<Account> acclist){
+For (Account acc: acclist)
+{ acc.descrption = 'Account is created';
+}}}
+
+public satic void populateRating(List<Acccount>acclist){
+ For(Account : acclist)
+if (acc.industry !=null && acc.industry=='media'){
+acc.rarting='hot';
+}
+}
+
